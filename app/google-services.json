@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "205949086116",
+    "firebase_url": "https://booktime-9be56-default-rtdb.firebaseio.com",
+    "project_id": "booktime-9be56",
+    "storage_bucket": "booktime-9be56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205949086116:android:e3b10cd85fa86f2ed63931",
+        "android_client_info": {
+          "package_name": "com.atakavuncu.booktime"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxv87BwnJnmdcIvD3Qjr8ieOxCt8LQcfc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

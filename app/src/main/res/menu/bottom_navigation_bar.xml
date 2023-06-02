@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item
+            android:id="@+id/menuButton"
+            android:icon="@drawable/ic_baseline_menu_24"
+            android:title="Menü"/>
+        <item
+            android:id="@+id/booksButton"
+            android:icon="@drawable/ic_baseline_menu_book_24"
+            android:title="Kitaplar"/>
+        <item
+            android:id="@+id/searchButton"
+            android:icon="@drawable/ic_baseline_search_24"
+            android:title="Keşfet"/>
+        <item
+            android:id="@+id/profileButton"
+            android:icon="@drawable/ic_baseline_perm_identity_24"
+            android:title="Profil"/>
+    </menu>
