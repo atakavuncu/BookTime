@@ -3,6 +3,15 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.kotlinAndroidKapt)
     alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.google.services)
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file("local.properties")
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withInputStream { stream ->
+        localProperties.load(stream)
+    }
 }
 
 android {
@@ -20,6 +29,12 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        buildConfigField("String", "GOOGLE_BOOKS_API_KEY", "\"${localProperties.getProperty('GOOGLE_BOOKS_API_KEY')}\"")
+    }
+
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -58,6 +73,9 @@ dependencies {
     implementation libs.androidx.ui.graphics
     implementation libs.androidx.ui.tooling.preview
     implementation libs.androidx.material3
+    implementation libs.androidx.navigation.common.ktx
+    implementation libs.androidx.navigation.compose
+    implementation libs.firebase.storage.ktx
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
@@ -65,6 +83,24 @@ dependencies {
     androidTestImplementation libs.androidx.ui.test.junit4
     debugImplementation libs.androidx.ui.tooling
     debugImplementation libs.androidx.ui.test.manifest
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    implementation(libs.coil.compose)
+
+    //Hilt
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
+    implementation libs.androidx.hilt.navigation.compose
+
+    //Room Database
+    implementation libs.androidx.room.runtime
+    kapt libs.androidx.room.compiler
+    implementation libs.androidx.room.ktx
+
+    //Retrofit2
+    implementation libs.retrofit
+    implementation libs.converter.gson
+
+    //Firebase
+    implementation platform(libs.firebase.bom)
+    implementation libs.firebase.auth.ktx
+    implementation libs.firebase.firestore.ktx
 }
